@@ -1,0 +1,113 @@
+@import "./variables.scss";
+@import "./breakpoints.scss";
+
+.categories {
+  padding: 50px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: $lightgrey;
+
+  @include sm {
+    padding: 50px 20px;
+  }
+
+  h1 {
+    color: $blue;
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 15px;
+  }
+
+  p {
+    max-width: 700px;
+    font-size: 20px;
+  }
+
+.categoryCircle {
+    justify-content: center;
+    width: 50px;
+    /* Adjust the width and height as needed */
+    height: 50px;
+    border-radius: 50%;
+    /* This makes the div circular */
+    overflow: hidden;
+    /* Clips the content that goes beyond the circle */
+    background-color: white;
+    /* Sets the background color of the circle */
+    position: relative;
+    /* Enable positioning for the image */
+  }
+
+  .categoryCircle img {
+    position: absolute;
+    /* Positions the image relative to its parent */
+    top: 50%;
+    /* Positions the image vertically at 50% of the circle */
+    left: 50%;
+    /* Positions the image horizontally at 50% of the circle */
+    transform: translate(-50%, -50%);
+    /* Centers the image within the circle */
+    max-width: 80%;
+    /* Makes sure the image doesn't exceed the circle's dimensions */
+    max-height: 80%;
+    justify-content: center;
+  }
+  .categories_list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 0;
+    justify-content: center;
+    gap: 20px;
+
+    a {
+      text-decoration: none;
+    }
+
+    .category {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 250px;
+      height: 200px;
+      cursor: pointer;
+
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.55);
+        transition: 0.3s ease-in-out;
+      }
+
+      &_text {
+        position: relative;
+        color: white;
+
+        &_icon {
+          font-size: 45px;
+        }
+
+        p {
+          font-weight: 600;
+        }
+      }
+
+      &:hover {
+        .overlay {
+          width: 80%;
+          height: 80%;
+        }
+      }
+
+    }
+  }
+}
